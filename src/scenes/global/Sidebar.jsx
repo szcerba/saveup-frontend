@@ -73,21 +73,25 @@ const Sidebar = () => {
                         {!isCollapsed && (
                             <Box
                                 display="flex"
-                                justifyContent="space-between"
+                                justifyContent="center"
                                 alignItems="center"
                                 ml="15px"
                             >
                                 <Typography variant="h3" color={colors.grey[100]}>
-                                    ADMINIS
+                                    SaveUp!
                                 </Typography>
-                                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-                                    <MenuOutlinedIcon/>
-                                </IconButton>
+                                {
+                                    isCollapsed && (
+                                        <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+                                            <MenuOutlinedIcon/>
+                                        </IconButton>
+                                    )
+                                }
                             </Box>
                         )}
                     </MenuItem>
                     {/* USER */}
-                    {!isCollapsed && (
+                    {!isCollapsed ? (
                         <Box mb="25px">
                             <Box display="flex" justifyContent="center" alignItems="center">
                                 <img
@@ -105,14 +109,14 @@ const Sidebar = () => {
                                     fontWeight="bold"
                                     sx={{m: "10px 0 0 0"}}
                                 >
-                                    Ed Roh
+                                    Usuario
                                 </Typography>
-                                <Typography variant="h5" color={colors.greenAccent[500]}>VP Fancy Admin</Typography>
+                                <Typography variant="h5" color={colors.greenAccent[500]}>Administrador</Typography>
                             </Box>
                         </Box>
-                    )
-
-                    }
+                    ) : (
+                        <Box mb="25px"></Box>
+                    )}
                     {/* MENU ITEMS */}
                     <Box paddingLeft={isCollapsed ? undefined : "10%"}>
                         <Item
